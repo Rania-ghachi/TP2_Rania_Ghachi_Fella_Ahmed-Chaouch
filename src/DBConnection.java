@@ -2,7 +2,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection implements IGetConn
+
+{
 	   
 		String BDD = "nomBD";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
@@ -15,7 +17,7 @@ public class DBConnection {
 			conn=(DBConnection) DriverManager.getConnection(url, user,passwd);
 		}
 
-	    
+	   @Override
 	    public static Connection getConn() throws SQLException {
 	    	if(conn == null) {
 	    		conn = new DBConnection();

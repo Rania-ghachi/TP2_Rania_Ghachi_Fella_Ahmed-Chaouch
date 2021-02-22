@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements IGetConn{
 	
 	
 	void add(Etudiant E) throws SQLException
@@ -62,6 +62,13 @@ public class EtudiantRepository {
 		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
 		connect.close();
 		return false;
+	}
+
+
+	@Override
+	public Connection getConn() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

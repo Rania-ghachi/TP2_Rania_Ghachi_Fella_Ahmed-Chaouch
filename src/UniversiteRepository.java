@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UniversiteRepository {
+public class UniversiteRepository implements IGetConn{
 	
 	
 	Universite GetById(int universityId) throws SQLException {
@@ -27,6 +27,12 @@ public class UniversiteRepository {
 		return u;	
 	
 		
+	}
+
+	@Override
+	public Connection getConn() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 	
 }
