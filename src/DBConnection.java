@@ -8,19 +8,20 @@ public class DBConnection {
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
 		String user = "root";
 		String passwd = "";
-	    private Connection conn;
+	    private static DBConnection conn;
 
 	   
-	    public DBConnection() throws SQLException {
-			conn=DriverManager.getConnection(url, user,passwd);
+	   private DBConnection() throws SQLException {
+			conn=(DBConnection) DriverManager.getConnection(url, user,passwd);
 		}
 
 	    
-	    public Connection getConn() {
-			return conn;
+	    public static Connection getConn() throws SQLException {
+	    	if(conn == null) {
+	    		conn = new DBConnection();
 		}
-
-
+	    	return (Connection) conn;
+	    }
 		
 	
 }
